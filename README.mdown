@@ -1,0 +1,27 @@
+Interpreter
+===========
+
+Interpreter is a simple JQuery templating engine, it's super duper simple, it allows you to add variables in your pages encapsulated in brackets like {} and it simply interprets the variables when your page loads (onReady).
+
+Usage
+=====
+
+    $('#some-block').interpret(yourObject, {options});
+    
+Example
+=======
+
+    // my object to process
+    var num = {
+      one: 1,
+      two: 2,
+      three: 3
+    }
+    
+    $('#data').interpret(num)
+    
+    
+    <!-- Somewhere in your markup -->
+    <div id="data">
+      Did you know that {one} + {two} = {three}?
+    </div>
