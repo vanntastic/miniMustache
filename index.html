@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Jquery Interpreter</title>
+    <script type="text/javascript" src="jquery.js"></script> 
+    <script type="text/javascript" src="jquery.interpreter.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    
+      $(document).ready(function() {
+        // An example hash
+        var nums = {
+          one: 1,
+          two: 2,
+          three: 3
+        };
+        
+        $('#data').interpreter(nums);
+        
+        var collection = [{
+          name: "James Doe",
+          bday: "03/04/2010",
+          description: "This is a quick description of james"
+        },{
+          name: "John Jackson",
+          bday: "04/10/2001",
+          description: "His name is John Jackson"
+        },{
+          name: "Michael",
+          bday: "03/02/1977",
+          description: "His name is Michael"
+        }];
+        
+        $("#list").interpreter(collection);
+      });
+      
+    </script>
+     
+  </head>
+  
+  <div id="container">
+    <h1>An example of Interpreter works:</h1>
+    
+    
+    <h2>A simple example</h2>
+    
+    <p>
+      Let's assume that you have the following hash:
+    </p>
+    
+    <pre>
+       var nums = {
+          one: 1,
+          two: 2,
+          three: 3
+        };
+        
+        // And you want to interpret the following block:
+        Did you know that {one} + {two} = {three}?
+    </pre>
+    
+    <div id="data">
+      Did you know that {one} + {two} = {three}?
+    </div>
+    
+    <h2>Passing a collection</h2>
+    
+    <p>
+      What if you wanted to pass a collection of hashes? Here's how that would 
+      work:
+    </p>
+    
+    <pre>
+      
+      var collection = [{
+        name: "James Doe",
+        bday: "03/04/2010",
+        description: "This is a quick description of james"
+      },{
+        name: "John Jackson",
+        bday: "04/10/2001",
+        description: "His name is John Jackson"
+      }];
+      
+    </pre>
+    
+    <ul id="list">
+      <li class="collection">
+        <strong>Name:</strong> {name}, 
+        <strong>Bday:</strong> {bday}, 
+        <strong>Description:</strong> {description}
+      </li>
+    </ul>
+    
+    
+  </div>
+
+</html>

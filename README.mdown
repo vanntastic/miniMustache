@@ -20,8 +20,10 @@ Example
     
     $('#data').interpret(num)
     
-    
     <!-- Somewhere in your markup -->
     <div id="data">
       Did you know that {one} + {two} = {three}?
     </div>
+    
+    
+    
