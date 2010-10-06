@@ -1,9 +1,9 @@
 ;(function($) {
   
-// Interpreter a simple jquery plugin/engine that allows you to embed object values in your page using a bracket style syntax.
+// miniMustache is a simple jquery plugin that allows you to embed object values in your page using a bracket style syntax.
 
-$.fn.interpreter = function(obj, options) {
-  var opts = $.extend({}, $.fn.interpreter.defaults, options);
+$.fn.miniMustache = function(obj, options) {
+  var opts = $.extend({}, $.fn.miniMustache.defaults, options);
 
   if (typeof(this) == "string") {
     return this.interpret(obj);
@@ -13,6 +13,7 @@ $.fn.interpreter = function(obj, options) {
       var $this = $(this);
       
       if (obj.length == undefined) {
+        // CONTINUE here by adding in support for ajax requests
         // not an array of objects
         $this.html($this.html().interpret(obj));
       }else{
@@ -55,7 +56,7 @@ $.fn.interpreter = function(obj, options) {
 };
 
 // default options
-$.fn.interpreter.defaults = {
+$.fn.miniMustache.defaults = {
   collectionClass: ".collection"
 };
 
