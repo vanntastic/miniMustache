@@ -33,6 +33,12 @@
         }];
         
         $("#list").miniMustache(collection);
+        
+        // remote collection example
+        $.getJSON("remoteCollection.json", function(data){
+          $("#remote-list").miniMustache(data);
+        });
+        
       });
       
     </script>
@@ -86,6 +92,38 @@
     </pre>
     
     <ul id="list">
+      <li class="collection">
+        <strong>Name:</strong> {name}, 
+        <strong>Bday:</strong> {bday}, 
+        <strong>Description:</strong> {description}
+      </li>
+    </ul>
+    
+    <h2>A Remote Collection</h2>
+    
+    <p>
+      Assuming you have a remote json file with an array of json objects.
+    </p>
+    
+    <pre>
+      // remoteCollection.js
+      [{
+        "name": "James Doe",
+        "bday": "03/04/2010",
+        "description": "This is a quick description of james"
+      },{
+        "name": "John Jackson",
+        "bday": "04/10/2001",
+        "description": "His name is John Jackson"
+      }]
+      
+      // remote collection example
+      $.getJSON("remoteCollection.json", function(data){
+        $("#remote-list").miniMustache(data);
+      });
+    </pre>
+    
+    <ul id="remote-list">
       <li class="collection">
         <strong>Name:</strong> {name}, 
         <strong>Bday:</strong> {bday}, 

@@ -13,7 +13,6 @@ $.fn.miniMustache = function(obj, options) {
       var $this = $(this);
       
       if (obj.length == undefined) {
-        // CONTINUE here by adding in support for ajax requests
         // not an array of objects
         $this.html($this.html().interpret(obj));
       }else{
