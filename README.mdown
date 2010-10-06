@@ -1,7 +1,7 @@
-Interpreter
-===========
+miniMustache
+============
 
-Interpreter is a simple JQuery templating engine, it's super duper simple, it allows you to add variables in your pages encapsulated in brackets like {} and it simply interprets the variables when your page loads (onReady).
+miniMustache is a simple JQuery templating engine, it's super duper simple, it allows you to add variables in your pages encapsulated in brackets like {{var}} and it simply interprets the variables when your page loads (onReady).
 
 Usage
 =====
@@ -18,11 +18,11 @@ Example
       three: 3
     }
     
-    $('#data').interpret(num)
+    $('#data').miniMustache(num)
     
     <!-- Somewhere in your markup -->
     <div id="data">
-      Did you know that {one} + {two} = {three}?
+      Did you know that {{one}} + {{two}} = {{three}}?
     </div>
     
     

@@ -63,7 +63,7 @@ $.fn.miniMustache.defaults = {
 
 // Borrowed from : http://javascript.crockford.com/remedial.html
 String.prototype.interpret = function (o) {
-    return this.replace(/{([^{}]*)}/g,
+    return this.replace(/{{([^{}]*)}}/g,
         function (a, b) {
             var r = o[b];
             return typeof r === 'string' || typeof r === 'number' ? r : a;
