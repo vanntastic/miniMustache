@@ -23,7 +23,8 @@ $.fn.miniMustache = function(obj, options) {
         var templateId = randomId();
         template.attr('id',templateId);
         templateHtml = template.html();
-        for (var i=0; i < obj.length; i++) {
+        var limit = opts.collectionLimit == false ? obj.length : opts.collectionLimit;
+        for (var i=0; i < limit; i++) {
           var _id = "#" + templateId;
           if (i==0) {
             $(_id).html(templateHtml.interpret(obj[i]));
@@ -56,7 +57,8 @@ $.fn.miniMustache = function(obj, options) {
 
 // default options
 $.fn.miniMustache.defaults = {
-  collectionClass: ".collection"
+  collectionClass: ".collection",
+  collectionLimit: false
 };
 
 })(jQuery);
