@@ -1,29 +1,47 @@
 miniMustache
 ============
 
-miniMustache is a simple JQuery templating engine, it's super duper simple, it allows you to add variables in your pages encapsulated in brackets like {{var}} and it simply interprets the variables when your page loads (onReady).
+miniMustache is a simple JQuery templating engine, it's a super duper simple version of the [mustache.js](http://github.com/janl/mustache.js) or more importantly [mustache](http://github.com/defunkt/mustache). Mustache emphasizes a lot on logic-free templates, with miniMustache, I really intended to make it logic-free. Then I started thinking..., for most of the things that I want this to work for, I don't really want to separate view from the template. What I really wanted was a super basic version of mustache to embed templates into html. Even better, how about we turn it into a jQuery plugin? Then we can just wrap a dom element where we want a template to be rendered!
 
+Why?
+====
+
+Consider this a lightweight engine to use for consuming JSON objects and rendering them on your page. Or simply as an add on to any of your existing jQuery projects to avoid that ugliness that is javascript concatenation, and drop in a nice substitute for the lack of string interpolation in Javascript, super useful for when you have to write markup in javascript. There's no conditionals, no partials, nothing else except you, an object or multiple objects and a way for you to easily render them on your page. For me this fits about 80% of the use case of what I usually do, if you need anything more advanced, just use [mustache.js](http://github.com/janl/mustache.js). 
+
+Example:
+
+    // Instead of:
+    var fName = "Vann";
+    var lName = "Ek";
+    var content = "Hello my first name is " + fName + " and my last name is " + \
+                  lName;
+                  
+    $('#some-paragraph').html(content);
+    
+    // your markup in your page might look like this:
+    <p id="some-paragraph"></p>
+
+    
+    // You can do:
+    var name = {
+      fName: "Vann",
+      lName: "Ek"
+    }
+    
+    $('#some-paragraph').miniMustache(name);
+    
+    // and your markup in your page will look like this:
+    <p id="#some-paragraph">
+      Hello my first name is {{fName}} and my last name is {{lName}}
+    </p>
+    
+
+I don't know about you, but I would much rather prefer the latter.    
+    
 Usage
 =====
 
-    $('#some-block').interpret(yourObject, {options});
-    
-Example
-=======
-
-    // my object to process
-    var num = {
-      one: 1,
-      two: 2,
-      three: 3
-    }
-    
-    $('#data').miniMustache(num)
-    
-    <!-- Somewhere in your markup -->
-    <div id="data">
-      Did you know that {{one}} + {{two}} = {{three}}?
-    </div>
+    $('#some-block').miniMustache(yourObject, {options});
     
     
     
