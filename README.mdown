@@ -6,7 +6,7 @@ miniMustache is a simple JQuery templating engine, it's a super duper simple ver
 Why?
 ====
 
-Consider this a lightweight engine to use for consuming JSON objects and rendering them on your page. Or simply as an add on to any of your existing jQuery projects to avoid that ugliness that is javascript concatenation, and drop in a nice substitute for the lack of string interpolation in Javascript, super useful for when you have to write markup in javascript. There's no conditionals, no partials, nothing else except you, an object or multiple objects and a way for you to easily render them on your page. For me this fits about 80% of the use case of what I usually do, if you need anything more advanced, just use [mustache.js](http://github.com/janl/mustache.js). 
+Consider this a lightweight parser to use for consuming JSON objects and rendering them on your page. Or simply as an add on to any of your existing jQuery projects to avoid that ugliness that is javascript concatenation, and drop in a nice substitute for the lack of string interpolation in Javascript, super useful for when you have to write markup in javascript. There's no conditionals, no partials, nothing else except you, an object or multiple objects and a way for you to easily render them on your page. For me this fits about 80% of the use case of what I usually do, if you need anything more advanced, just use [mustache.js](http://github.com/janl/mustache.js). 
 
 Example:
 
@@ -36,8 +36,6 @@ Example:
     </p>
     
 
-I don't know about you, but I would much rather prefer the latter.    
-    
 Usage
 =====
 
