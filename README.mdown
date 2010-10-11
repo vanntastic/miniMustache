@@ -8,7 +8,7 @@ Why?
 
 Consider this a lightweight parser to use for consuming JSON objects and rendering them on your page. Or simply as an add on to any of your existing jQuery projects to avoid that ugliness that is javascript concatenation, and drop in a nice substitute for the lack of string interpolation in Javascript, super useful for when you have to write markup in javascript. There's no conditionals, no partials, nothing else except you, an object or multiple objects and a way for you to easily render them on your page. For me this fits about 80% of the use case of what I usually do, if you need anything more advanced, just use [mustache.js](http://github.com/janl/mustache.js). 
 
-Example:
+Examples:
 
     // Instead of:
     var fName = "Vann";
@@ -36,10 +36,44 @@ Example:
     </p>
     
 
+    // Using collections and remote requests
+    
+    // Let's assume that you have json file sitting somewhere that looks like:
+    // remoteCollection.json
+      [{
+        "name": "James Doe",
+        "bday": "03/04/2010",
+        "description": "This is a quick description of james"
+      },{
+        "name": "John Jackson",
+        "bday": "04/10/2001",
+        "description": "His name is John Jackson"
+      }]
+      
+    // here's how you would use miniMustache to render it
+    $.getJSON("remoteCollection.json", function(data){
+      $("#remote-list").miniMustache(data);
+    });
+    
+    // your markup would look like this, the key is to define the repeated dom object with the class name of "collection"
+    
+    <ul id="remote-list">
+      <li class="collection">
+        <strong>Name:</strong> {{name}}, 
+        <strong>Bday:</strong> {{bday}}, 
+        <strong>Description:</strong> {{description}}
+      </li>
+    </ul>
+    
 Usage
 =====
 
     $('#some-block').miniMustache(yourObject, {options});
     
     
+Inspiration    
+===========
+
+The inspiration for this plugin came from [mustache.js](http://github.com/janl/mustache.js) and [Douglas Crockford's Remeidal Javascript](http://javascript.crockford.com/remedial.html).
+            
 Copyright (c) 2010 Vann Ek., released under the MIT license 
